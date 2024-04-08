@@ -38,6 +38,7 @@ const signupUser = async (req, res) => {
       email,
       username,
       password: hashedPassword,
+      bio: "",
     });
     await newUser.save();
 
@@ -49,6 +50,8 @@ const signupUser = async (req, res) => {
         name: newUser.name,
         email: newUser.email,
         username: newUser.username,
+        bio: newUser.bio,
+        profilePic: newUser.profilePic,
       });
     } else {
       res.status(400).json({ error: "Invalid user data" });
